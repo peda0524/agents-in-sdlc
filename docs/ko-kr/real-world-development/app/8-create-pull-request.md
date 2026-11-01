@@ -34,7 +34,7 @@ lastUpdated: 2026-09-17
 1. 에이전트 선택기에서 **Default agent**를 선택합니다.
 2. **Create PR** 옆의 드롭다운을 선택합니다.
 3. **Agent merge**를 선택합니다. 버튼이 **Agent merge**로 바뀝니다.
-4. **Agent merge**를 선택하여 Agent Merge 프로세스를 시작합니다.
+4. **Agent Merge** 버튼을 선택하여 프로세스를 시작합니다. 드롭다운 옵션만 선택해서는 시작되지 않습니다.
 
 Agent Merge 프로세스가 시작되면 다음 작업을 수행합니다.
 
@@ -45,10 +45,18 @@ Agent Merge 프로세스가 시작되면 다음 작업을 수행합니다.
 - 다른 개발자나 Copilot 코드 검토의 피드백이 있는지 PR을 모니터링하고 의견을 해결하도록 업데이트합니다.
 - 선택적으로 모든 작업이 성공하면 PR을 자동으로 병합할 수 있습니다.
 
-모든 검사가 통과하면 Agent Merge가 PR도 병합하도록 합니다.
+Agent Merge가 모든 검사가 통과한 뒤 PR도 병합하도록 합니다.
 
-5. **Agent merge** 옆의 드롭다운을 선택합니다.
-6. **Merge pull request** 옆에 체크 표시가 있는지 확인합니다.
+5. 병합 권한을 부여하기 전에 PR diff와 검증 근거를 검토합니다.
+6. **Agent Merge** 옆의 드롭다운을 선택합니다.
+7. **Merge pull request** 옆에 체크 표시가 있는지 확인합니다.
+8. 에이전트에 명시적으로 병합을 요청합니다.
+
+    ```plaintext
+    Merge the PR once all required checks and approvals pass. Do not bypass repository protections.
+    ```
+
+9. 진행 상황을 확인하고 보고된 차단 요인을 해결합니다. 계속하기 전에 PR 상태가 **Merged**인지 확인합니다. 병합 권한이 활성화되었거나 에이전트가 실행 중이라는 사실만으로 병합 완료를 확인할 수는 없습니다.
 
 > [!IMPORTANT]
 > Agent Merge는 리포지토리 보호나 누락된 권한을 우회하지 않습니다. 계속하기 전에 이러한 차단 요인을 해결합니다.
